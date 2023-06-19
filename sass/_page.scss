@@ -1,0 +1,48 @@
+body.page {
+  background-image: url(../images/bg_center.jpg);
+  @include background-size(cover);
+}
+.page-warp {
+	max-width: $w-s;
+  margin: $m-center;
+  padding: 20px;
+  @include clearfix;
+}
+.page-p {
+	float: left;
+  width: 45%;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+.page-content {
+	float: right;
+  width: 50%;
+}
+.page-tit {
+  @include hide-text;
+  @include bg('t-c.png');
+}
+.page-text {
+  color: #000;
+  margin-top: 1em;
+  line-height: 2em;
+  
+  li {
+    margin-top: 1em;
+  }
+}
+.paeg-icon {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #000;
+  li {
+    float: left;
+    margin-right: 1em;
+  }
+  a {
+    @include hide-text;
+    display: block;
+  }
+}

@@ -1,0 +1,434 @@
+/*------------------------------------*\
+全部頁面共用layout
+\*------------------------------------*/
+
+.wrap {
+}
+
+/**
+*header區塊內容
+**/
+.snow {
+  position: absolute;
+  left: 0;
+  top: -5%;
+}
+header {
+  background: url(../images/bg_header.jpg) center top no-repeat;
+  height: 1030px;
+  position: fixed;
+  width: 100%;
+}
+.icon-logo {
+  @include hide-text;
+  display: block;
+  position: absolute;
+  margin-left: 50%;
+  top: .5em;
+  left: -115px;
+  z-index: 11;
+}
+/*h1*/.tit {
+  @include hide-text;
+}
+
+%transition {
+  position: absolute;
+  margin-left: 50%;
+  @include opacity(0);
+  @include transition (all 0.2s);
+  &.out {
+    @include opacity(1);
+  }
+}
+@for $i from 1 through 5 {
+  .t#{$i} {
+    @extend .icon-t#{$i};
+  @extend %transition;
+}
+}
+
+%transform {
+  @include transform (scaleY(0.1) translateY(-500px));
+  z-index: 0;
+  &.out {
+    @include transform (scaleY(1) translateY(0px));
+  }
+}
+@for $i from 1 through 5 {
+  .t#{$i} {
+//    @extend %transform;
+  } 
+}
+
+.t1 {
+  left: 360px;
+  top: 45px;
+  @include transform (translateY(-500px));
+  z-index: 0;
+  &.out {
+    @include transform (translateY(0px));
+  }
+}
+.t2 {
+  left: 320px;
+  top: 90px;
+  @include transform (translateY(500px));
+  z-index: 0;
+  &.out {
+    @include transform (translateY(0px));
+  }
+}
+.t3 {
+  left: 430px;
+  top: 160px;
+  @include transform (translateY(-500px));
+  z-index: 0;
+  &.out {
+    @include transform (translateY(0px));
+  }
+}
+.t4 {
+  left: 380px;
+  top: 305px;
+  @include transform (translateY(500px));
+  z-index: 0;
+  &.out {
+    @include transform (translateY(0px));
+  }
+}
+.t5 {
+  left: 470px;
+  top: 70px;
+}
+
+@for $i from 1 through 6 {
+  .m#{$i} {
+    @extend .icon-m#{$i};
+  z-index: 0 ;
+  @include opacity(0);
+  @include transition (all 0.2s);
+  &.on {
+    @include opacity(1);
+  }
+}
+.p#{$i} {
+  @extend .icon-p-t#{$i};
+z-index: 10;
+}
+}
+.map {
+  >div {
+    position: absolute;
+    margin-left: 50%;
+  }
+  >a {
+    display: block;
+    position: absolute;
+    margin-left: 50%;
+    padding-top: 40px;
+    text-align: center;
+    &:after {
+      content: url(../images/p-icon.png);
+      position: absolute;
+      top: 185px;
+      left: 55px;
+    }
+  }
+}
+.p-text {
+  color: #fff;
+}
+.m1 {
+  left: -490px;
+  top: 540px;
+}
+.p1 {
+  left: -180px;
+  top: 600px;
+}
+.m2 {
+  left: -513px;
+  top: 430px;
+}
+.p2 {
+  left: -320px;
+  top: 397px;
+}
+.m3 {
+  left: -198px;
+  top: 378px;
+}
+.p3 {
+  left: -70px;
+  top: 320px;
+}
+.m4 {
+  left: -715px;
+  top: 170px;
+}
+.p4 {
+  left: -400px;
+  top: 190px;
+}
+.m5 {
+  left: -540px;
+  top: 647px;
+}
+.p5 {
+  left: -500px;
+  top: 530px;
+}
+.m6 {
+  left: -238px;
+  top: 47px;
+}
+.p6 {
+  left: -203px;
+  top: 145px;
+}
+/**
+*contents區塊內容
+*各單元內容顯示區
+**/
+.content { 
+  position: absolute;
+  top:850px;
+  z-index: 500;
+  width: 100%;
+  background: url(../images/bg_content.png) center top no-repeat;
+}
+/*參加步驟*/
+.step {
+  margin-top: 150px;
+  background: url(../images/black_paper.jpg) 0 0 repeat;
+}
+.step-group {
+  margin: $m-center;
+  max-width: $w;
+  padding: 10px;
+  li {
+    background-color: #000;
+    background-repeat: no-repeat;
+    border: 1px solid #434141;
+    margin-bottom: 20px;
+    width: 49%;
+    padding-left:20%;
+    @include inline-block;
+    &:first-child {
+      background-image: url(../images/pic_01.jpg);
+      @include background-size(auto 100%);
+    }
+    &:nth-child(2) {
+      background-image: url(../images/pic_02.jpg);
+      @include background-size(auto 100%);
+      margin-left: 1.5%;
+    }
+    &:last-child {
+      background-image: url(../images/pic_03.jpg);
+      @include background-size(cover);
+      width: 100%;
+      padding-left: 0;
+      padding-bottom: 20px;
+    }
+  }
+}
+.vote {
+
+}
+.from-t {
+  @include bg('pic_03-t.png');
+  margin: 20px auto;
+}
+.from-group {
+  @include inline-block;
+  width: 15%;
+  margin-left: 1%;
+  text-align: center;
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #434141;
+  }
+  b {
+    color: $color-text-second;
+    padding-right: 1em;
+  }
+}
+
+.step-text {
+  padding: 10px;
+  text-align: center;
+  p {
+    color: darken($color-text,40%);
+    text-align: left;
+    font-style: italic;
+    &.tac {
+      text-align: center;
+    }
+  }
+  hr {
+    border-color: darken($color-text,40%);
+    border-width: 1px 0 0 0;
+  }
+  input {
+    width: $percent;
+    padding: 5px;
+    font-family: "微軟正黑體";
+  }
+  input[type='button'] {
+    cursor: pointer;
+    color: #d4d4d4;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #4267b2;
+    max-width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @include border-radius(5px);
+    @include transition(all,.3s);
+    &:hover {
+      color: #fff;
+      background-color: #4375d9;
+    }
+  }
+}
+.btn {
+  padding: 10px;
+  text-align: center;
+  a {
+    margin-bottom: 10px;
+    width: 90%;
+    @include inline-block;
+    padding: 1em;
+    @include border-radius(.5em);
+    color: darken($color-text,40%);
+    @include transition(all,.3s);
+    &:hover {
+      color: $color-text;
+    }
+  }
+  @include breakpoint(mobile) {
+    a {
+      width: 30%;
+      max-width: 300px;
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  @include breakpoint(pad) {
+    padding-bottom: 30px;
+  }
+}
+.btn-home {
+  background-color: #86151d;
+  &:hover {
+    background-color: #b11e28;
+  }
+}
+.btn-fb {
+  background-color: #4267b2;
+  &:hover {
+    background-color: #4375d9;
+  }
+}
+.btn-live {
+  background-color: #2e6d07;
+  &:hover {
+    background-color: #4ca317;
+  }
+}
+.bg-top {
+  height: 140px;
+  background-image: url(../images/bg_content-red.png);
+  background-size: auto 100%;
+}
+/*活動說明*/
+.activity {
+  background: url(../images/red_paper.jpg) 0 0 repeat;
+  width: 100%
+}
+.activity-content {
+  max-width: $w;
+  margin: $m-center;
+  padding: 10px 10px 30px 10px;
+  @include text-shadow(rgba(black, 1) 1px 1px 3px);
+
+  h3 {
+    color: $color-text-second;
+    font-style: italic;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.8em;
+    border-bottom: 1px solid darken($color-text-second,10%);
+    padding-left: .5em;
+    margin-top: 1em;
+    margin-bottom: .2em;
+  } 
+  >p {
+    padding-left: 1em;
+  }
+}
+/**
+*footer區塊內容
+**/
+footer {
+  background: url(../images/red_paper.jpg) 0 0 repeat;
+  //  background-color: #501010;
+  color: darken($color-text,40%);
+  //  font-size: .5em;
+  line-height: 1.5em;
+  padding: 10px;
+  @include clearfix;
+
+}
+/*注意事項*/
+.notice {
+  font-size: .9em;
+  max-width: $w;
+  margin: $m-center;
+  padding: .5em .5em 2em .5em;
+  border-bottom: 1px solid darken($color-text,40%);
+  ul {
+    list-style: decimal;
+    padding-left: 1.5em;
+  }
+}
+.copyrigth {
+  font-size: .5em;
+  max-width: $w;
+  margin: $m-center;
+  position: relative;
+  @include clearfix;
+}
+.company {
+  text-align: left;
+  overflow: hidden;
+  margin-top: 10px;
+  li {
+    @include inline-block;
+    margin-right: 15px;
+  }
+}
+.grade {
+  line-height: 1.3em;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  ul {
+    display: none;
+  }
+  @include breakpoint(pad) {
+    top: 10px;
+    ul{
+      display: block;
+      float: left;
+    }
+    .icon-12 {
+      float: right;
+      margin-left: 10px;
+    }
+  }
+}
